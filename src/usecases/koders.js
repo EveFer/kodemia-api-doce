@@ -14,7 +14,7 @@ function deleteById(id) {
 }
 
 function updateById(id, newData) {
-    return Koder.findByIdAndUpdate(id, newData, { new: true })
+    return Koder.findByIdAndUpdate(id, newData, { new: true, runValidators: true })
 }
 
 module.exports = {
