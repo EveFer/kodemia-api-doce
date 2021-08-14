@@ -32,6 +32,15 @@ const koderSchema = new mongoose.Schema({
         required: true,
         min: 1,
     },
+    password: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        match: /.+@.*\..*/
+    }
 })
 
 const model = mongoose.model('koders', koderSchema)

@@ -68,3 +68,14 @@ module.exports = server
 // actualizarlas
 // eliminarlas
 // obtener detalle
+
+
+// --- Middlewares
+
+// Crear un middleware que muestre en la terminal las peticiones
+// que se van realizando
+
+// [METHOD] [ruta] [body]
+
+// GET /koders {}
+// POST /koders {..}

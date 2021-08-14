@@ -1,12 +1,20 @@
 const Koder = require('../models/koders')
-
+const bcrypt = require('../lib/bcrypt')
 
 function getAll() {
    return Koder.find()
 }
 
-function create({ name, lastName, generation, gender, age }) {
-   return Koder.create({ name, lastName, generation, gender, age })
+async function create (koderData) {
+   const { email, password } = koderData
+   const koderFound = await Koder.findOne({ email })
+   
+   if (koderFound) throw new Error('Email of koder exists already')
+
+   // Encriptar el password
+   const encryptedPassword = await bcrypt.hash(password)
+
+   return Koder.create({...koderData, password: encryptedPassword })
 }
 
 function deleteById(id) {
