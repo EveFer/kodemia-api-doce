@@ -2,16 +2,21 @@
 
 
 const express = require('express')
+const cors = require('cors')
+
 const kodersRouter = require('./routers/koders')
+const authRouter = require('./routers/auth')
+
 
 const server = express()
 
 // middlewares
+server.use(cors())
 server.use(express.json())
 
 // agregabamos los router
 server.use('/koders', kodersRouter)
-
+server.use('/auth', authRouter)
 
 module.exports = server
 
